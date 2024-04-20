@@ -19,3 +19,25 @@ window.onclick = function(event) {
         }
     }
 }
+document.addEventListener('DOMContentLoaded', function() {
+    const back = document.getElementById('back');
+
+    // 监听页面滚动事件
+    window.onscroll = function() {
+        scrollFunction();
+    };
+
+    function scrollFunction() {
+        if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+            back.style.display = "block";
+        } else {
+            back.style.display = "none";
+        }
+    }
+
+    // 当点击按钮时，滚动到页面顶部
+    back.addEventListener('click', function() {
+        document.body.scrollTop = 0; // Safari
+        document.documentElement.scrollTop = 0; // Chrome, Firefox, IE 和 Opera
+    });
+});
